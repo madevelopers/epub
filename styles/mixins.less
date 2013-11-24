@@ -1,0 +1,34 @@
+.hyphens (@hyp) {
+    adobe-hyphenate: @hyp;
+    -moz-hyphens: @hyp;
+    -webkit-hyphens: @hyp;
+    hyphens: @hyp;
+}
+
+.hyphenate_before (@hyp) {
+    -webkit-hyphenate-before: @hyp;
+    hyphenate-before: @hyp;
+}
+.hyphenate_after (@hyp) {
+    -webkit-hyphenate-after: @hyp;
+    hyphenate-after: @hyp;
+}
+.hyphenate_lines (@hyp) {
+    -webkit-hyphenate-lines: @hyp;
+    hyphenate-lines: @hyp;
+}
+.default_hyphenation () {
+    .hyphenate_before (3);
+    .hyphenate_after (3);
+    .hyphenate_lines (2);
+}
+
+.border_radius (@bor) {
+    -webkit-border-radius: @bor;
+    border-radius: @bor;
+}
+
+.box_shadow (@box) {
+    -webkit-box-shadow: @box;
+    box-shadow: @box;
+}

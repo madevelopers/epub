@@ -1,0 +1,222 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
+img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i,
+center, dl, dt, dd, fieldset, form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+// I would recommend you use <thead>, <tbody> and <tfoot> elements
+// in constructing your tables. This rule set assumes that you do so.
+table {
+    .zebra_stripe () {
+        & tbody tr:nth-child(2n-1) {
+            background: @default_table_background_color;
+        }
+    }
+
+    border-collapse: collapse;
+    border-spacing: 0;
+    page-break-inside: avoid;
+    margin: 1em auto;
+
+    &.no-border {
+        th, td {
+            border: 0;
+        }
+    }
+    &.zebra {
+        .zebra_stripe ();
+    }
+
+    thead {
+        page-break-after: avoid;
+    }
+    tfoot {
+        ol.note-list {
+            font-size: 0.85em;
+        }
+    }
+
+    th, td {
+        padding: 5px !important;
+        vertical-align: baseline;
+        border: @default_table_border_color 1px solid;
+        .hyphens (~"none !important");
+    }
+
+    td {
+        page-break-inside: avoid;
+        text-align: left;
+        text-indent: 0;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    .hyphens (~"none !important");
+    page-break-after: avoid;   // because you wouldn't like headings getting
+    page-break-inside: avoid;  // separated from its contents
+    text-indent: 0;
+    text-align: left;
+    font-family: @default_heading_font_family;
+}
+
+a {
+    text-decoration: none;
+    border-bottom: 1px dotted;
+}
+
+p {
+    .hyphens (auto);
+    .default_hyphenation ();
+    line-height: @default_line_height;
+    text-indent: @default_paragraph_indent;
+    text-align: @default_paragraph_alignment;
+    orphans: 2;
+    widows: 2;
+
+    &.first-para {
+        text-indent: 0;
+
+        &.runin-smallcaps {
+            font-variant: small-caps;
+        }
+        &.runin-allcaps {
+            text-transform: uppercase;
+        }
+    }
+    &.no-indent {
+        text-indent: 0;
+    }
+    &.indent {
+        text-indent: @default_indent;
+    }
+}
+
+sup, sub {
+  font-size: .5em;
+  line-height: .5em;
+}
+sup {
+  vertical-align: super;
+}
+sub {
+  vertical-align: sub;
+}
+
+ul, ol, dl {
+    margin: 1em 0;
+    text-align: left;
+
+    p {
+        text-indent: 0;
+    }
+}
+
+ol.note-list {
+    // for footnotes or endnotes
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+        margin: 0.2em 0 0 1.8em;
+        padding: 0;
+        line-height: 1.2;
+        text-indent: -2em;
+
+        a.back-link {
+            display: inline-block;
+            border: 0;
+            border-right: darken(white, 10%) 0.3em solid;
+            background: darken(white, 6%);
+            width: 1.8em;
+            font-size: .75em;
+            margin-right: 0.2em;
+            padding: 0.2em 0.1em;
+            text-align: center;
+            text-indent: 0;
+            position: relative;
+            top: -0.2em;
+        }
+    }
+}
+
+li {
+    line-height: @default_line_height;
+    text-align: @default_paragraph_alignment;
+    text-indent: 0;
+    orphans: 2;
+    widows: 2;
+}
+
+dd {
+    line-height: @default_line_height;
+}
+
+// TODO:
+// create samples and add the link here
+blockquote {
+    // Align blockquotes vertically with the default paragraph indentation
+    .margin () when (@default_blockquote_font_size < 1.4em) {
+        @margin: (1em - @default_blockquote_font_size) * 1.5em + @default_indent;
+
+        margin-left: @margin;
+        margin-right: @margin;
+    }
+    .margin () when (@default_blockquote_font_size >= 1.4em) {
+        margin-left: @default_indent;
+        margin-right: @default_indent;
+    }
+
+    .margin ();
+    line-height: @default_line_height;
+    font-size: @default_blockquote_font_size;
+}
+
+pre, tt, code, samp, kbd {
+  font-family: @mono;
+  word-wrap: break-word;
+}
+
+// TODO:
+// think about the margins here and provide samples
+pre {
+    font-size: 0.8em;
+    line-height: 1.2em;
+    white-space: pre-wrap;
+    display: block;
+}
+
+figure,
+.block-image {
+    text-align: center;
+    page-break-inside: avoid;
+
+    img {
+        .border_radius (0.3em);
+        .box_shadow (~"rgba(0, 0, 0, 0.15) 0 1px 4px");
+        box-sizing: border-box;
+        border: white 0.5em solid;
+        // Don't go too big on images, let reader zoom in if they care to
+        max-width: 80%;
+        max-height: 80%;
+
+        // TODO:
+        // This needs test cases and samples
+        &.pwhack {
+            width: 100%;
+        }
+    }
+
+    figcaption {
+        .tpl_default_caption ();
+    }
+}
+

@@ -1,0 +1,38 @@
+// Default settings
+// ================
+
+    @default_line_height: 1.5;
+    @default_indent: 1.5em;
+
+    // Font faces
+    @mono: "Courier New", Courier, monospace;
+    @sans: Helvetica, Arial, sans-serif;
+    @serif: Palatino, "Times New Roman", Caecilia, serif;
+
+    // Paragraphs
+    @default_paragraph_indent: @default_indent;
+    @default_paragraph_alignment: left;
+
+    // Blockquotes
+    @default_blockquote_font_size: 0.85em;
+
+    // Headings
+    @default_heading_font_family: @sans;
+
+    // Tables
+    @default_table_border_color: lighten(black, 30%);
+    @default_table_background_color: darken(white, 5%);  // used for zebra stripes
+
+
+// Template Mixins
+// ===============
+
+    .tpl_default_caption () {
+        text-align: center;
+        font-size: .85em;
+        margin-top: 1em;
+
+        p {
+            text-indent: 0;
+        }
+    }

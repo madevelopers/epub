@@ -1,0 +1,37 @@
+// Text Related
+// ============
+
+    .no-hyphens {
+        .hyphens (~"none !important");
+    }
+
+    .rtl {
+        direction: rtl;
+        float: right;
+    }
+
+    // Alignments
+    .left   { text-align: left; }
+    .right  { text-align: right; }
+    .center { text-align: center; }
+
+
+// Boxes / Blocks / Groups
+// =======================
+
+    .group {
+        page-break-inside: avoid;
+    }
+
+    .caption {
+        // Usually used on images with captions.
+        // Use this on paragraphs (p.caption) or a caption group (div.caption)
+        .tpl_default_caption ();
+    }
+
+    .f-right {
+        float: right;
+    }
+    .f-left {
+        float: left;
+    }

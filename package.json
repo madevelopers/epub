@@ -1,0 +1,26 @@
+{
+  "name": "epub-css",
+  "version": "0.0.0",
+  "description": "A starter css template for epub.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/madevelopers/epub.git"
+  },
+  "keywords": [
+    "epub",
+    "css"
+  ],
+  "author": "Mark Anthony Degamo <madevelopers@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/madevelopers/epub/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-less": "~0.8.2",
+    "grunt-contrib-watch": "~0.5.3"
+  }
+}
