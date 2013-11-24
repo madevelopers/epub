@@ -15,6 +15,10 @@
     .right  { text-align: right; }
     .center { text-align: center; }
 
+    // Character Styles
+    .underline    { text-decoration: underline; }
+    .line-through { text-decoration: line-through; }
+
 
 // Boxes / Blocks / Groups
 // =======================
@@ -29,9 +33,58 @@
         .tpl_default_caption ();
     }
 
-    .f-right {
-        float: right;
+
+
+// Floats
+// ======
+
+    .f-right { float: right; }
+    .f-left  { float: left; }
+
+    .clear {
+        clear: both;
     }
-    .f-left {
-        float: left;
+    .clearfix {
+        &:before,
+        &:after {
+            content: " ";
+            display: table;
+        }
+        &:after {
+            clear: both;
+        }
     }
+
+
+// Spacing Utilities
+// =================
+
+    // TODO:
+    // needs samples and documentation here
+
+    // Drops
+    ._drop (@n) when (@n <= 10) {
+        .drop@{n} {
+            margin-top: 1em * @n;
+        }
+
+        ._drop (@n + 1);
+    }
+    ._drop (0);
+
+    // Insets
+    ._inset (@n) when (@n <= 5) {
+        .inset-l@{n} {
+            margin-left: 1em * @n;
+        }
+        .inset-r@{n} {
+            margin-right: 1em * @n;
+        }
+        .inset-lr@{n} {
+            margin-left: 1em * @n;
+            margin-right: 1em * @n;
+        }
+
+        ._inset (@n + 1);
+    }
+    ._inset (1);
